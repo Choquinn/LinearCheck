@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resolvedor de sistemas lineares</title>
+  <link rel="stylesheet" href="../CSS/calculation.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="page__header">
+      <p>Olá, <p id="name"></p>! Bem-vindo(a) ao LinearCheck!</p>
+      <p class="subtitle">
+        Digite uma equação por linha. As variáveis e o escalonamento são
+        descobertos automaticamente — você não precisa dizer quantas
+        incógnitas existem.
+      </p>
+    </header>
+
+    <main class="panel">
+      <div class="equation-input">
+        <div class="brace-wrap" aria-hidden="true">
+          <svg id="brace" class="brace" viewBox="0 0 24 100" preserveAspectRatio="none">
+            <path d=""></path>
+          </svg>
+        </div>
+        <textarea
+          id="equations"
+          class="equations"
+          rows="3"
+          spellcheck="false"
+          aria-label="Equações do sistema, uma por linha"
+          placeholder="2x + 3y - z = 5
+x - y + 2z = -2
+3x + y + z = 8"
+        ></textarea>
+      </div>
+
+      <div class="controls">
+        <button id="solveBtn" class="btn btn--primary" type="button">Resolver sistema</button>
+        <button id="clearBtn" class="btn btn--ghost" type="button">Limpar</button>
+        <label class="checkbox">
+          <input type="checkbox" id="showSteps" />
+          Mostrar passos do escalonamento
+        </label>
+      </div>
+
+      <p id="errorMsg" class="error" hidden></p>
+
+      <section id="results" class="results" hidden>
+        <div class="result-block">
+          <h2>Variáveis detectadas</h2>
+          <p id="variablesList" class="mono"></p>
+        </div>
+
+        <div class="result-block">
+          <h2>Matriz aumentada</h2>
+          <div id="initialMatrix"></div>
+        </div>
+
+        <div id="stepsBlock" class="result-block" hidden>
+          <h2>Passos do escalonamento</h2>
+          <div id="stepsList" class="steps"></div>
+        </div>
+
+        <div class="result-block">
+          <h2>Solução</h2>
+          <div id="solution" class="solution"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page__footer">
+      <p>
+        Convenção: cada variável é uma letra, opcionalmente seguida de número
+        (x, y, z, x1, x2...). Use Ctrl+Enter (ou Cmd+Enter) para resolver.
+      </p>
+    </footer>
+  </div>
+
+  <script src="../JS/solver.js"></script>
+  <script src="../JS/app.js"></script>
+</body>
+</html>

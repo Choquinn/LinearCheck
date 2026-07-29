@@ -11,6 +11,7 @@
 
   var solveBtn = document.getElementById('solveBtn');
   var clearBtn = document.getElementById('clearBtn');
+  var aboutBtn = document.getElementById('ourTeam');
   var showStepsCheckbox = document.getElementById('showSteps');
 
   var errorMsg = document.getElementById('errorMsg');
@@ -237,6 +238,10 @@
     resultsEl.hidden = true;
     lastData = null;
     equationsEl.focus();
+  }); 
+
+  aboutBtn.addEventListener('click', function () {
+    window.location.href = 'team.html';
   });
 
   showStepsCheckbox.addEventListener('change', function () {
